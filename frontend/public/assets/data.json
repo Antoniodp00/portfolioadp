@@ -17,6 +17,7 @@
       { "platform": "WhatsApp", "url": "https://wa.me/34616250960",                     "icon": "whatsapp" }
     ]
   },
+
   "skills": [
     { "id": 1,  "name": "Java",        "category": "Backend",   "level": 80, "icon": "java" },
     { "id": 2,  "name": "Kotlin",      "category": "Mobile",    "level": 75, "icon": "kotlin" },
