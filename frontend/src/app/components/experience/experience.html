@@ -1,0 +1,74 @@
+<section id="experience" class="experience-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">{{ 'exp.label' | translate }}</span>
+      <h2>{{ 'exp.title' | translate }}</h2>
+      <p>{{ 'exp.subtitle' | translate }}</p>
+    </div>
+
+    <mat-tab-group class="exp-tabs" animationDuration="300ms">
+
+      <mat-tab [label]="'exp.tabExp' | translate">
+        <div class="timeline">
+          @for (exp of experience(); track exp.id; let last = $last; let i = $index) {
+            <div class="timeline-item" [class.last]="last">
+              <div class="timeline-dot" [class.current]="exp.current"></div>
+              <div class="timeline-card" appAnimateOnScroll [delay]="i * 100">
+                <div class="card-header">
+                  <div>
+                    <h3 class="card-role">{{ exp.role }}</h3>
+                    <a class="card-company" [href]="exp.companyUrl" target="_blank">
+                      <mat-icon>business</mat-icon> {{ exp.company }}
+                    </a>
+                  </div>
+                  <div class="card-meta">
+                    <span class="card-period">
+                      <mat-icon>calendar_today</mat-icon> {{ exp.period }}
+                    </span>
+                    @if (exp.current) {
+                      <span class="badge-current">{{ 'exp.actual' | translate }}</span>
+                    }
+                  </div>
+                </div>
+                <p class="card-desc">{{ exp.description }}</p>
+                <ul class="achievements">
+                  @for (a of exp.achievements; track a) {
+                    <li><mat-icon>check_circle</mat-icon> {{ a }}</li>
+                  }
+                </ul>
+              </div>
+            </div>
+          }
+        </div>
+      </mat-tab>
+
+      <mat-tab [label]="'exp.tabEdu' | translate">
+        <div class="timeline">
+          @for (edu of education(); track edu.id; let last = $last; let i = $index) {
+            <div class="timeline-item" [class.last]="last">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card" appAnimateOnScroll [delay]="i * 100">
+                <div class="card-header">
+                  <div>
+                    <h3 class="card-role">{{ edu.field }}</h3>
+                    <span class="card-company">
+                      <mat-icon>school</mat-icon> {{ edu.institution }}
+                    </span>
+                  </div>
+                  <div class="card-meta">
+                    <span class="card-period">
+                      <mat-icon>calendar_today</mat-icon> {{ edu.period }}
+                    </span>
+                    <span class="badge-degree">{{ edu.degree }}</span>
+                  </div>
+                </div>
+                <p class="card-desc">{{ edu.description }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </mat-tab>
+
+    </mat-tab-group>
+  </div>
+</section>

@@ -1,0 +1,91 @@
+<div class="manager-page">
+  <div class="page-header">
+    <h2><mat-icon>business_center</mat-icon> Experiencia ({{ experiences().length }})</h2>
+    <button mat-flat-button class="save-btn" (click)="openNew()">
+      <mat-icon>add</mat-icon> Nueva Experiencia
+    </button>
+  </div>
+
+  @if (showForm()) {
+    <div class="form-panel">
+      <div class="form-panel-header">
+        <h3>{{ editing() ? 'Editar' : 'Nueva' }} Experiencia</h3>
+        <button mat-icon-button (click)="cancel()"><mat-icon>close</mat-icon></button>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="save()" class="inline-form wide">
+        <div class="form-row-2">
+          <mat-form-field appearance="outline">
+            <mat-label>Empresa</mat-label>
+            <input matInput formControlName="company" /><mat-icon matPrefix>business</mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Cargo / Rol</mat-label>
+            <input matInput formControlName="role" /><mat-icon matPrefix>work</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="form-row-2">
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha inicio (ej: 2022-01)</mat-label>
+            <input matInput formControlName="startDate" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha fin (dejar vacío si actual)</mat-label>
+            <input matInput formControlName="endDate" [disabled]="form.get('current')?.value === true" />
+          </mat-form-field>
+        </div>
+        <mat-checkbox formControlName="current">Trabajo actual</mat-checkbox>
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>Descripción</mat-label>
+          <textarea matInput formControlName="description" rows="3"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>URL Empresa</mat-label>
+          <input matInput formControlName="companyUrl" />
+        </mat-form-field>
+
+        <div class="array-section">
+          <div class="array-header">
+            <span>Logros</span>
+            <button type="button" mat-stroked-button class="add-btn" (click)="addAchievement()">
+              <mat-icon>add</mat-icon> Añadir
+            </button>
+          </div>
+          <div formArrayName="achievements" class="array-list">
+            @for (a of achievements.controls; track $index) {
+              <div class="array-row">
+                <mat-form-field appearance="outline" class="flex-1">
+                  <input matInput [formControlName]="$index" placeholder="Describir logro..." />
+                </mat-form-field>
+                <button type="button" mat-icon-button class="remove-btn" (click)="removeAchievement($index)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" mat-stroked-button (click)="cancel()">Cancelar</button>
+          <button type="submit" mat-flat-button class="save-btn"><mat-icon>save</mat-icon> Guardar</button>
+        </div>
+      </form>
+    </div>
+  }
+
+  <div class="data-table">
+    <div class="table-header">
+      <span>Empresa</span><span>Rol</span><span>Periodo</span><span>Acciones</span>
+    </div>
+    @for (e of experiences(); track e.id) {
+      <div class="table-row">
+        <span class="row-name">{{ e.company }}</span>
+        <span>{{ e.role }}</span>
+        <span class="badge">{{ e.period }}</span>
+        <div class="row-actions">
+          <button mat-icon-button (click)="openEdit(e)" matTooltip="Editar"><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button class="delete-btn" (click)="delete(e)" matTooltip="Eliminar"><mat-icon>delete</mat-icon></button>
+        </div>
+      </div>
+    }
+  </div>
+</div>

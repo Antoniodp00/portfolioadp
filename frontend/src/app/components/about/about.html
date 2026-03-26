@@ -1,0 +1,40 @@
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">{{ 'about.label' | translate }}</span>
+      <h2>{{ 'about.title' | translate }}</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-info">
+        @if (profile(); as p) {
+          <p class="about-bio">{{ p.bio }}</p>
+
+          <div class="contact-info">
+            <div class="info-item">
+              <mat-icon>location_on</mat-icon>
+              <span>{{ p.location }}</span>
+            </div>
+            <div class="info-item">
+              <mat-icon>email</mat-icon>
+              <a [href]="'mailto:' + p.email">{{ p.email }}</a>
+            </div>
+            <div class="info-item">
+              <mat-icon>phone</mat-icon>
+              <span>{{ p.phone }}</span>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="stats-grid">
+        @for (stat of stats; track stat.key; let i = $index) {
+          <div class="stat-card" appAnimateOnScroll [delay]="i * 100">
+            <span class="stat-value">{{ stat.value }}</span>
+            <span class="stat-label">{{ stat.key | translate }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

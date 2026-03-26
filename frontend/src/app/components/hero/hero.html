@@ -1,0 +1,86 @@
+<!-- HERO -->
+<section id="hero" class="hero-section">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="hero-text animate-fade-up">
+      <span class="hero-greeting">{{ 'hero.greeting' | translate }}</span>
+
+      @if (profile(); as p) {
+        <h1 class="hero-name">{{ p.name }}</h1>
+      } @else {
+        <h1 class="hero-name">Tu Nombre</h1>
+      }
+
+      <h2 class="hero-role">
+        <span class="typed-text">{{ typedText() }}</span>
+        <span class="cursor">|</span>
+      </h2>
+
+      @if (profile(); as p) {
+        <p class="hero-bio">{{ p.subtitle }}</p>
+      }
+
+      <div class="hero-actions">
+        <button mat-flat-button class="btn-primary" (click)="scrollTo('#projects')">
+          <mat-icon>work</mat-icon> {{ 'hero.verProyectos' | translate }}
+        </button>
+        <button mat-stroked-button class="btn-secondary" (click)="scrollTo('#contact')">
+          <mat-icon>mail</mat-icon> {{ 'hero.contactar' | translate }}
+        </button>
+        @if (profile()?.cvUrl) {
+          <a [href]="profile()!.cvUrl" target="_blank" mat-stroked-button class="btn-cv">
+            <mat-icon>download</mat-icon> {{ 'hero.descargarCV' | translate }}
+          </a>
+        }
+      </div>
+
+      @if (profile(); as p) {
+        <div class="social-links">
+          @for (link of p.socialLinks; track link.platform) {
+            <a [href]="link.url" target="_blank" class="social-link" [title]="link.platform">
+              @if (link.icon === 'email') {
+                <mat-icon class="social-icon-mat">email</mat-icon>
+              } @else {
+                <img [src]="getSocialIconUrl(link.icon)" [alt]="link.platform" class="social-icon-img" />
+              }
+            </a>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="hero-visual animate-fade-up">
+      <div class="avatar-wrapper">
+        @if (profile(); as p) {
+          @if (p.avatarUrl) {
+            <img [src]="p.avatarUrl" [alt]="p.name" class="avatar-img" />
+          } @else {
+            <div class="avatar-placeholder">
+              <mat-icon>person</mat-icon>
+            </div>
+          }
+        }
+        <div class="avatar-ring"></div>
+        <div class="tech-badge badge-1"><span>Spring Boot</span></div>
+        <div class="tech-badge badge-2"><span>Angular</span></div>
+        <div class="tech-badge badge-3"><span>Java 21</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" (click)="scrollTo('#about')">
+    <mat-icon>keyboard_arrow_down</mat-icon>
+  </div>
+</section>
+
+<!-- ALL SECTIONS BELOW HERO -->
+<app-about />
+<app-skills />
+<app-projects />
+<app-experience />
+<app-contact />

@@ -1,0 +1,110 @@
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">{{ 'contact.label' | translate }}</span>
+      <h2>{{ 'contact.title' | translate }}</h2>
+      <p>{{ 'contact.subtitle' | translate }}</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Info -->
+      <div class="contact-info" appAnimateOnScroll>
+        <h3>{{ 'contact.listoTitle' | translate }}</h3>
+        <p>{{ 'contact.listoDesc' | translate }}</p>
+
+        @if (profile(); as p) {
+          <div class="info-items">
+            <a [href]="'mailto:' + p.email" class="info-item">
+              <div class="info-icon"><mat-icon>email</mat-icon></div>
+              <div>
+                <span class="info-label">Email</span>
+                <span class="info-value">{{ p.email }}</span>
+              </div>
+            </a>
+            <div class="info-item">
+              <div class="info-icon"><mat-icon>location_on</mat-icon></div>
+              <div>
+                <span class="info-label">{{ 'contact.ubicacion' | translate }}</span>
+                <span class="info-value">{{ p.location }}</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><mat-icon>schedule</mat-icon></div>
+              <div>
+                <span class="info-label">Disponibilidad</span>
+                <span class="info-value available">{{ 'contact.disponible' | translate }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            @for (link of p.socialLinks; track link.platform) {
+              <a [href]="link.url" target="_blank" class="social-btn" [title]="link.platform">
+                @if (link.icon === 'email') {
+                  <mat-icon class="social-icon-mat">email</mat-icon>
+                } @else {
+                  <img [src]="getSocialIconUrl(link.icon)" [alt]="link.platform" class="social-icon-img" />
+                }
+                <span>{{ link.platform }}</span>
+              </a>
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Form -->
+      <form class="contact-form" appAnimateOnScroll [delay]="150" [formGroup]="form" (ngSubmit)="send()">
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="field">
+            <mat-label>{{ 'contact.nombre' | translate }}</mat-label>
+            <input matInput formControlName="name" placeholder="Tu nombre" />
+            <mat-icon matPrefix>person</mat-icon>
+            @if (form.get('name')?.invalid && form.get('name')?.touched) {
+              <mat-error>Nombre requerido (mín. 2 caracteres)</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="field">
+            <mat-label>{{ 'contact.email' | translate }}</mat-label>
+            <input matInput formControlName="email" placeholder="tu@email.com" type="email" />
+            <mat-icon matPrefix>email</mat-icon>
+            @if (form.get('email')?.invalid && form.get('email')?.touched) {
+              <mat-error>Email válido requerido</mat-error>
+            }
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="field full">
+          <mat-label>{{ 'contact.asunto' | translate }}</mat-label>
+          <input matInput formControlName="subject" placeholder="¿De qué trata?" />
+          <mat-icon matPrefix>subject</mat-icon>
+          @if (form.get('subject')?.invalid && form.get('subject')?.touched) {
+            <mat-error>Asunto requerido (mín. 5 caracteres)</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="field full">
+          <mat-label>{{ 'contact.mensaje' | translate }}</mat-label>
+          <textarea matInput formControlName="message" rows="6" placeholder="Cuéntame sobre tu proyecto..."></textarea>
+          @if (form.get('message')?.invalid && form.get('message')?.touched) {
+            <mat-error>Mensaje requerido (mín. 10 caracteres)</mat-error>
+          }
+        </mat-form-field>
+
+        <button mat-flat-button type="submit" class="submit-btn" [disabled]="sending()">
+          @if (sending()) {
+            <ng-container>
+              <mat-icon>hourglass_empty</mat-icon> Enviando...
+            </ng-container>
+          } @else {
+            <ng-container>
+              <mat-icon>send</mat-icon> {{ 'contact.enviar' | translate }}
+            </ng-container>
+          }
+        </button>
+      </form>
+
+    </div>
+  </div>
+</section>

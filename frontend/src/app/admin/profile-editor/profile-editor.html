@@ -1,0 +1,69 @@
+<div class="manager-page">
+  <div class="page-header">
+    <h2><mat-icon>person</mat-icon> Editar Perfil</h2>
+    <button mat-flat-button class="save-btn" (click)="save()" [disabled]="saving()">
+      <mat-icon>{{ saving() ? 'hourglass_empty' : 'save' }}</mat-icon>
+      {{ saving() ? 'Guardando...' : 'Guardar' }}
+    </button>
+  </div>
+
+  <form [formGroup]="form" class="editor-form">
+    <div class="form-section">
+      <h3>Información básica</h3>
+      <div class="form-row">
+        <mat-form-field appearance="outline"><mat-label>Nombre completo</mat-label>
+          <input matInput formControlName="name" /><mat-icon matPrefix>badge</mat-icon></mat-form-field>
+        <mat-form-field appearance="outline"><mat-label>Título profesional</mat-label>
+          <input matInput formControlName="title" /><mat-icon matPrefix>work</mat-icon></mat-form-field>
+      </div>
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Subtítulo / eslogan</mat-label>
+        <input matInput formControlName="subtitle" /><mat-icon matPrefix>title</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Biografía</mat-label>
+        <textarea matInput formControlName="bio" rows="5"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="form-section">
+      <h3>Contacto</h3>
+      <div class="form-row">
+        <mat-form-field appearance="outline"><mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email" /><mat-icon matPrefix>email</mat-icon></mat-form-field>
+        <mat-form-field appearance="outline"><mat-label>Teléfono</mat-label>
+          <input matInput formControlName="phone" /><mat-icon matPrefix>phone</mat-icon></mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline"><mat-label>Ubicación</mat-label>
+          <input matInput formControlName="location" /><mat-icon matPrefix>location_on</mat-icon></mat-form-field>
+        <mat-form-field appearance="outline"><mat-label>URL Avatar</mat-label>
+          <input matInput formControlName="avatarUrl" /><mat-icon matPrefix>image</mat-icon></mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="section-row">
+        <h3>Redes sociales</h3>
+        <button type="button" mat-stroked-button class="add-btn" (click)="addSocialLink()">
+          <mat-icon>add</mat-icon> Añadir
+        </button>
+      </div>
+      <div formArrayName="socialLinks" class="social-list">
+        @for (link of socialLinks.controls; track $index) {
+          <div [formGroupName]="$index" class="social-row">
+            <mat-form-field appearance="outline"><mat-label>Plataforma</mat-label>
+              <input matInput formControlName="platform" /></mat-form-field>
+            <mat-form-field appearance="outline"><mat-label>URL</mat-label>
+              <input matInput formControlName="url" /></mat-form-field>
+            <mat-form-field appearance="outline"><mat-label>Icono</mat-label>
+              <input matInput formControlName="icon" /></mat-form-field>
+            <button type="button" mat-icon-button class="remove-btn" (click)="removeSocialLink($index)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        }
+      </div>
+    </div>
+  </form>
+</div>

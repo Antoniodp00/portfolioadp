@@ -1,0 +1,46 @@
+<nav class="navbar" [class.scrolled]="scrolled()">
+  <div class="nav-container">
+    <a class="nav-brand" (click)="scrollTo('#hero')">
+      <span class="brand-bracket">&lt;</span>Dev<span class="brand-slash">/</span><span class="brand-bracket">&gt;</span>
+    </a>
+
+    <ul class="nav-links">
+      @for (link of navLinks; track link.key) {
+        <li>
+          <button mat-button class="nav-link" (click)="scrollTo(link.anchor)">
+            {{ link.key | translate }}
+          </button>
+        </li>
+      }
+    </ul>
+
+    <button mat-icon-button class="theme-toggle" (click)="themeService.toggle()" [attr.aria-label]="themeService.theme() === 'dark' ? 'Modo claro' : 'Modo oscuro'">
+      <mat-icon>{{ themeService.theme() === 'dark' ? 'light_mode' : 'dark_mode' }}</mat-icon>
+    </button>
+
+    <button mat-button class="lang-toggle" (click)="i18nService.toggle()">
+      {{ i18nService.lang() === 'es' ? 'EN' : 'ES' }}
+    </button>
+
+    <a class="btn-hire" (click)="scrollTo('#contact')">{{ 'nav.contratar' | translate }}</a>
+
+    <button mat-icon-button class="menu-toggle" (click)="menuOpen.set(!menuOpen())">
+      <mat-icon>{{ menuOpen() ? 'close' : 'menu' }}</mat-icon>
+    </button>
+  </div>
+
+  @if (menuOpen()) {
+    <div class="mobile-menu">
+      @for (link of navLinks; track link.key) {
+        <button mat-button (click)="scrollTo(link.anchor)">{{ link.key | translate }}</button>
+      }
+      <button mat-button (click)="themeService.toggle()">
+        <mat-icon>{{ themeService.theme() === 'dark' ? 'light_mode' : 'dark_mode' }}</mat-icon>
+        {{ themeService.theme() === 'dark' ? 'Modo claro' : 'Modo oscuro' }}
+      </button>
+      <button mat-button class="lang-toggle" (click)="i18nService.toggle()">
+        {{ i18nService.lang() === 'es' ? 'EN' : 'ES' }}
+      </button>
+    </div>
+  }
+</nav>

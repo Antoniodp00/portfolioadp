@@ -1,0 +1,95 @@
+<div class="manager-page">
+  <div class="page-header">
+    <h2><mat-icon>work</mat-icon> Proyectos ({{ projects().length }})</h2>
+    <button mat-flat-button class="save-btn" (click)="openNew()">
+      <mat-icon>add</mat-icon> Nuevo Proyecto
+    </button>
+  </div>
+
+  @if (showForm()) {
+    <div class="form-panel">
+      <div class="form-panel-header">
+        <h3>{{ editing() ? 'Editar' : 'Nuevo' }} Proyecto</h3>
+        <button mat-icon-button (click)="cancel()"><mat-icon>close</mat-icon></button>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="save()" class="inline-form wide">
+        <div class="form-row-2">
+          <mat-form-field appearance="outline">
+            <mat-label>Título</mat-label>
+            <input matInput formControlName="title" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Categoría</mat-label>
+            <input matInput formControlName="category" placeholder="Full Stack, Backend..." />
+          </mat-form-field>
+        </div>
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>Descripción</mat-label>
+          <textarea matInput formControlName="description" rows="3"></textarea>
+        </mat-form-field>
+
+        <!-- Chip input for technologies -->
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>Tecnologías</mat-label>
+          <mat-chip-grid #chipGrid>
+            @for (tech of techs(); track tech) {
+              <mat-chip-row (removed)="removeTech(tech)">
+                {{ tech }}
+                <button matChipRemove><mat-icon>cancel</mat-icon></button>
+              </mat-chip-row>
+            }
+          </mat-chip-grid>
+          <input placeholder="Añadir tecnología..."
+            [matChipInputFor]="chipGrid"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="addTech($event)" />
+        </mat-form-field>
+
+        <div class="form-row-2">
+          <mat-form-field appearance="outline">
+            <mat-label>URL GitHub</mat-label>
+            <input matInput formControlName="githubUrl" /><mat-icon matPrefix>code</mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>URL Demo / Live</mat-label>
+            <input matInput formControlName="liveUrl" /><mat-icon matPrefix>open_in_new</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <mat-checkbox formControlName="featured" class="featured-check">
+          Proyecto destacado ⭐
+        </mat-checkbox>
+
+        <div class="form-actions">
+          <button type="button" mat-stroked-button (click)="cancel()">Cancelar</button>
+          <button type="submit" mat-flat-button class="save-btn">
+            <mat-icon>save</mat-icon> Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  }
+
+  <div class="data-table">
+    <div class="table-header">
+      <span>Título</span><span>Categoría</span><span>Tecnologías</span><span>Acciones</span>
+    </div>
+    @for (p of projects(); track p.id) {
+      <div class="table-row">
+        <div>
+          <span class="row-name">{{ p.title }}</span>
+          @if (p.featured) { <span class="badge featured">⭐ Destacado</span> }
+        </div>
+        <span class="badge">{{ p.category }}</span>
+        <div class="tech-chips">
+          @for (t of p.technologies.slice(0,3); track t) { <span class="tech-chip">{{ t }}</span> }
+          @if (p.technologies.length > 3) { <span class="tech-chip more">+{{ p.technologies.length - 3 }}</span> }
+        </div>
+        <div class="row-actions">
+          <button mat-icon-button (click)="openEdit(p)" matTooltip="Editar"><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button class="delete-btn" (click)="delete(p)" matTooltip="Eliminar"><mat-icon>delete</mat-icon></button>
+        </div>
+      </div>
+    }
+  </div>
+</div>

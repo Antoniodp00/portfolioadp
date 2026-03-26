@@ -1,0 +1,36 @@
+<section id="skills" class="skills-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">{{ 'skills.label' | translate }}</span>
+      <h2>{{ 'skills.title' | translate }}</h2>
+      <p>{{ 'skills.subtitle' | translate }}</p>
+    </div>
+
+    <div class="category-filters">
+      @for (cat of categories(); track cat) {
+        <button
+          class="filter-btn"
+          [class.active]="activeCategory() === cat"
+          (click)="activeCategory.set(cat)">
+          {{ cat === 'Todos' ? ('skills.todos' | translate) : cat }}
+        </button>
+      }
+    </div>
+
+    <div class="skills-grid">
+      @for (skill of filtered(); track skill.name; let i = $index) {
+        <div class="skill-card" appAnimateOnScroll [delay]="i * 60">
+          <div class="skill-header">
+            <div class="skill-name-row">
+              @if (skill.icon) {
+                <i class="devicon-{{skill.icon}}-plain colored skill-icon"></i>
+              }
+              <span class="skill-name">{{ skill.name }}</span>
+            </div>
+            <span class="skill-category">{{ skill.category }}</span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

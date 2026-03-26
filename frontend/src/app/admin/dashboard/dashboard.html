@@ -1,0 +1,36 @@
+<div class="dashboard">
+  <div class="welcome-banner">
+    <div>
+      <h2>Bienvenido de nuevo</h2>
+      <p>Gestiona el contenido de tu portfolio desde aquí</p>
+    </div>
+    <a mat-flat-button routerLink="/" class="view-btn">
+      <mat-icon>open_in_new</mat-icon> Ver Portfolio
+    </a>
+  </div>
+
+  <div class="stats-grid">
+    @for (stat of stats(); track stat.label) {
+      <a [routerLink]="stat.route" class="stat-card" [style.--accent]="stat.color">
+        <div class="stat-icon" [style.background]="stat.color + '22'" [style.color]="stat.color">
+          <mat-icon>{{ stat.icon }}</mat-icon>
+        </div>
+        <div class="stat-info">
+          <span class="stat-value">{{ stat.value }}</span>
+          <span class="stat-label">{{ stat.label }}</span>
+        </div>
+        <mat-icon class="stat-arrow">arrow_forward</mat-icon>
+      </a>
+    }
+  </div>
+
+  <div class="section-title">Acciones rápidas</div>
+  <div class="quick-links">
+    @for (link of quickLinks; track link.label) {
+      <a [routerLink]="link.route" class="quick-card">
+        <mat-icon>{{ link.icon }}</mat-icon>
+        <span>{{ link.label }}</span>
+      </a>
+    }
+  </div>
+</div>

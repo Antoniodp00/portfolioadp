@@ -1,0 +1,100 @@
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: var(--transition);
+
+  &.scrolled {
+    background: var(--color-nav-bg);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-border);
+    padding: 12px 0;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+  }
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-brand {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  color: var(--color-text);
+  .brand-bracket { color: var(--color-primary-light); }
+  .brand-slash   { color: var(--color-accent); }
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0; padding: 0;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+
+  .nav-link {
+    color: var(--color-muted) !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    border-radius: 8px;
+    &:hover { color: var(--color-text) !important; background: var(--color-bg-glass); }
+  }
+}
+
+.theme-toggle {
+  color: var(--color-muted) !important;
+  transition: var(--transition);
+  &:hover { color: var(--color-primary-light) !important; }
+}
+
+.lang-toggle {
+  color: var(--color-muted) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  min-width: 40px !important;
+  padding: 0 8px !important;
+  letter-spacing: 0.05em;
+  transition: var(--transition);
+  &:hover { color: var(--color-primary-light) !important; }
+}
+
+.btn-hire {
+  padding: 9px 22px;
+  background: var(--gradient-hero);
+  color: #fff;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition);
+  &:hover { transform: translateY(-1px); box-shadow: var(--shadow-glow); }
+}
+
+.menu-toggle { display: none !important; color: var(--color-text) !important; }
+
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 24px;
+  background: var(--color-mobile-menu);
+  border-top: 1px solid var(--color-border);
+  button { color: var(--color-muted) !important; justify-content: flex-start; }
+}
+
+@media (max-width: 768px) {
+  .nav-links, .btn-hire { display: none; }
+  .menu-toggle { display: flex !important; margin-left: auto; }
+  .theme-toggle { order: 3; }
+}

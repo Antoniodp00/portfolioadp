@@ -1,0 +1,52 @@
+<div class="admin-layout">
+  <!-- Sidebar -->
+  <aside class="sidebar" [class.collapsed]="collapsed()">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <mat-icon>admin_panel_settings</mat-icon>
+        @if (!collapsed()) { <span>Admin Panel</span> }
+      </div>
+      <button mat-icon-button (click)="collapsed.set(!collapsed())" class="collapse-btn">
+        <mat-icon>{{ collapsed() ? 'chevron_right' : 'chevron_left' }}</mat-icon>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      @for (item of navItems; track item.route) {
+        <a [routerLink]="item.route" routerLinkActive="active" class="nav-item" [matTooltip]="collapsed() ? item.label : ''" matTooltipPosition="right">
+          <mat-icon>{{ item.icon }}</mat-icon>
+          @if (!collapsed()) { <span>{{ item.label }}</span> }
+        </a>
+      }
+    </nav>
+
+    <div class="sidebar-footer">
+      <a routerLink="/" class="nav-item" [matTooltip]="collapsed() ? 'Ver Portfolio' : ''" matTooltipPosition="right">
+        <mat-icon>open_in_new</mat-icon>
+        @if (!collapsed()) { <span>Ver Portfolio</span> }
+      </a>
+      <button class="nav-item logout-btn" (click)="auth.logout()" [matTooltip]="collapsed() ? 'Salir' : ''" matTooltipPosition="right">
+        <mat-icon>logout</mat-icon>
+        @if (!collapsed()) { <span>Salir</span> }
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="admin-main">
+    <header class="admin-header">
+      <div class="header-left">
+        <h2 class="page-title">Panel de Administración</h2>
+      </div>
+      <div class="header-right">
+        <div class="user-chip">
+          <mat-icon>account_circle</mat-icon>
+          <span>{{ auth.getUsername() }}</span>
+        </div>
+      </div>
+    </header>
+    <div class="admin-content">
+      <router-outlet />
+    </div>
+  </main>
+</div>

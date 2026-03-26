@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Angular Frontend",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["./node_modules/@angular/cli/bin/ng.js", "serve", "--host", "0.0.0.0"],
+      "cwd": "frontend",
+      "port": 4200
+    },
+    {
+      "name": "Spring Boot Backend",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "mvnw.cmd", "spring-boot:run"],
+      "cwd": "backend",
+      "port": 8080
+    }
+  ]
+}

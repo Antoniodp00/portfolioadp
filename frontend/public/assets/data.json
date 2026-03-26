@@ -1,0 +1,215 @@
+{
+  "profile": {
+    "name": "Antonio Delgado Portero",
+    "title": "Desarrollador de Aplicaciones Multiplataforma",
+    "subtitle": "Apasionado por el desarrollo de software y las nuevas tecnologías",
+    "bio": "Desarrollador en formación con base sólida en sistemas. Tras dos años administrando infraestructuras IT en la administración pública, di el salto al desarrollo de software y actualmente curso el CFGS en Desarrollo de Aplicaciones Multiplataforma. Trabajo con Java, Kotlin, Spring Boot y TypeScript, y me apasionan el diseño de interfaces y la Inteligencia Artificial. Busco mi primera oportunidad como desarrollador para seguir creciendo en un equipo dinámico.",
+    "email": "antoniodelgadoportero070100@gmail.com",
+    "phone": "+34 616 250 960",
+    "location": "Andalucía, España",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/183821393?v=4",
+    "cvUrl": "",
+    "formspreeId": "",
+    "socialLinks": [
+      { "platform": "GitHub",   "url": "https://github.com/Antoniodp00",             "icon": "github" },
+      { "platform": "LinkedIn", "url": "https://linkedin.com/in/antoniodp00",         "icon": "linkedin" },
+      { "platform": "Email",    "url": "mailto:antoniodelgadoportero070100@gmail.com", "icon": "email" },
+      { "platform": "WhatsApp", "url": "https://wa.me/34616250960",                     "icon": "whatsapp" }
+    ]
+  },
+  "skills": [
+    { "id": 1,  "name": "Java",        "category": "Backend",   "level": 80, "icon": "java" },
+    { "id": 2,  "name": "Kotlin",      "category": "Mobile",    "level": 75, "icon": "kotlin" },
+    { "id": 3,  "name": "Spring Boot", "category": "Backend",   "level": 70, "icon": "spring" },
+    { "id": 4,  "name": "SQL",         "category": "Database",  "level": 75, "icon": "mysql" },
+    { "id": 5,  "name": "HTML5",       "category": "Frontend",  "level": 85, "icon": "html5" },
+    { "id": 6,  "name": "CSS3",        "category": "Frontend",  "level": 80, "icon": "css3" },
+    { "id": 7,  "name": "JavaScript",  "category": "Frontend",  "level": 75, "icon": "javascript" },
+    { "id": 8,  "name": "TypeScript",  "category": "Frontend",  "level": 65, "icon": "typescript" },
+    { "id": 9,  "name": "PHP",         "category": "Backend",   "level": 65, "icon": "php" },
+    { "id": 10, "name": "Android SDK", "category": "Mobile",    "level": 70, "icon": "android" },
+    { "id": 11, "name": "Linux Bash",  "category": "DevOps",    "level": 80, "icon": "linux" },
+    { "id": 12, "name": "PowerShell",  "category": "DevOps",    "level": 70, "icon": "powershell" },
+    { "id": 13, "name": "Git",          "category": "DevOps",    "level": 78, "icon": "git" },
+    { "id": 14, "name": "Angular",      "category": "Frontend",  "level": 65, "icon": "angularjs" },
+    { "id": 15, "name": "Angular Mat.", "category": "Frontend",  "level": 62, "icon": "angularjs" },
+    { "id": 16, "name": "C#",          "category": "Backend",   "level": 60, "icon": "csharp" },
+    { "id": 17, "name": ".NET",         "category": "Backend",   "level": 60, "icon": "dotnetcore" },
+    { "id": 18, "name": "Unity",        "category": "GameDev",   "level": 65, "icon": "unity" },
+    { "id": 19, "name": "C# (Unity)",   "category": "GameDev",   "level": 62, "icon": "csharp" }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "CineSphere",
+      "description": "Sistema completo de gestión de películas formado por una app Android nativa en Kotlin y un backend en Java. Permite explorar cartelera, gestionar favoritos y buscar títulos.",
+      "imageUrl": "",
+      "technologies": ["Kotlin", "Java", "Android SDK", "API REST"],
+      "githubUrl": "https://github.com/Antoniodp00/CineSphereApp",
+      "liveUrl": "",
+      "category": "Full Stack",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "ATM API Spring Boot",
+      "description": "API REST de cajero automático desarrollada con Spring Boot. Implementa operaciones bancarias básicas como depósito, retiro, consulta de saldo y transferencias entre cuentas.",
+      "imageUrl": "",
+      "technologies": ["Java", "Spring Boot", "REST API"],
+      "githubUrl": "https://github.com/Antoniodp00/atm-api-SpringBoot",
+      "liveUrl": "",
+      "category": "Backend",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "DGSigWeb",
+      "description": "Aplicación web desarrollada en TypeScript. Proyecto web moderno con arquitectura limpia y diseño orientado a la experiencia de usuario.",
+      "imageUrl": "",
+      "technologies": ["TypeScript", "HTML5", "CSS3"],
+      "githubUrl": "https://github.com/Antoniodp00/DGSigWeb",
+      "liveUrl": "",
+      "category": "Frontend",
+      "featured": true
+    },
+    {
+      "id": 4,
+      "title": "RetroSnap",
+      "description": "App Android desarrollada en Kotlin con efectos fotográficos de estilo retro. Aplica filtros de imagen en tiempo real y permite guardar y compartir las fotografías.",
+      "imageUrl": "",
+      "technologies": ["Kotlin", "Android SDK"],
+      "githubUrl": "https://github.com/Antoniodp00/RetroSnap",
+      "liveUrl": "",
+      "category": "Mobile",
+      "featured": false
+    },
+    {
+      "id": 5,
+      "title": "EcoRastro",
+      "description": "Aplicación Java enfocada en el seguimiento y rastreo de actividades con impacto medioambiental. Conciencia ecológica aplicada a la tecnología.",
+      "imageUrl": "",
+      "technologies": ["Java", "Android SDK"],
+      "githubUrl": "https://github.com/Antoniodp00/EcoRastro",
+      "liveUrl": "",
+      "category": "Mobile",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "Proyecto Chat",
+      "description": "Aplicación de mensajería en tiempo real desarrollada en Java. Permite la comunicación instantánea entre múltiples usuarios mediante sockets.",
+      "imageUrl": "",
+      "technologies": ["Java", "Sockets"],
+      "githubUrl": "https://github.com/Antoniodp00/ProyectoChatAntonioDelgadoPortero",
+      "liveUrl": "",
+      "category": "Backend",
+      "featured": false
+    }
+  ],
+  "experience": [
+    {
+      "id": 3,
+      "company": "Sepalo Software",
+      "role": "Desarrollador en Prácticas",
+      "period": "Ene 2025 – May 2025",
+      "startDate": "2025-02-18",
+      "endDate": "2025-05-21",
+      "current": false,
+      "description": "Prácticas de 2º DAM. Desarrollo de un proyecto real con .NET en el backend y Angular 21 en el frontend.",
+      "achievements": [
+        "Desarrollo de aplicación web con Angular 21 y Angular Material",
+        "Implementación de API REST con .NET",
+        "Trabajo en entorno profesional con metodología de equipo"
+      ],
+      "companyUrl": "",
+      "logoUrl": ""
+    },
+    {
+      "id": 4,
+      "company": "Berge-Lavrault (Écija)",
+      "role": "Desarrollador en Prácticas",
+      "period": "2024 – 2025",
+      "startDate": "2024-01-01",
+      "endDate": "2025-06-30",
+      "current": false,
+      "description": "Prácticas de 1º DAM en empresa de desarrollo de software. Primer contacto con el entorno profesional del desarrollo.",
+      "achievements": [
+        "Formación práctica en entorno real de desarrollo de software",
+        "Aplicación de conocimientos de programación adquiridos en el ciclo",
+        "Trabajo en equipo con profesionales del sector"
+      ],
+      "companyUrl": "",
+      "logoUrl": ""
+    },
+    {
+      "id": 1,
+      "company": "Ayuntamiento de Alcalá la Real",
+      "role": "Administrador de Sistemas Informáticos",
+      "period": "2022 – 2023",
+      "startDate": "2022-01-01",
+      "endDate": "2023-12-31",
+      "current": false,
+      "description": "Administración y mantenimiento de los sistemas informáticos municipales, garantizando la continuidad del servicio y la seguridad de la infraestructura.",
+      "achievements": [
+        "Mantenimiento y administración de servidores y equipos de red municipales",
+        "Gestión de usuarios, permisos y políticas de seguridad en Active Directory",
+        "Soporte técnico y resolución de incidencias para los empleados del ayuntamiento",
+        "Mantenimiento de infraestructura de red local y conectividad a internet"
+      ],
+      "companyUrl": "",
+      "logoUrl": ""
+    },
+    {
+      "id": 2,
+      "company": "Ayuntamiento de Montilla",
+      "role": "Administrador de Sistemas Informáticos",
+      "period": "2022",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31",
+      "current": false,
+      "description": "Administración de sistemas informáticos en el ámbito de la administración pública local.",
+      "achievements": [
+        "Administración de infraestructura de servidores y equipos municipales",
+        "Soporte técnico a usuarios y gestión de incidencias",
+        "Configuración y mantenimiento de equipos y periféricos"
+      ],
+      "companyUrl": "",
+      "logoUrl": ""
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "institution": "IES Francisco De Los Ríos",
+      "degree": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
+      "field": "DAM",
+      "period": "Actualidad",
+      "startDate": "2024-09-01",
+      "endDate": null,
+      "description": "Formación en desarrollo de aplicaciones para múltiples plataformas: escritorio, web y móvil. Programación orientada a objetos, bases de datos, acceso a servicios, desarrollo de apps Android y desarrollo de videojuegos 2D y 3D con Unity.",
+      "logoUrl": ""
+    },
+    {
+      "id": 2,
+      "institution": "CES Lope De Vega",
+      "degree": "Técnico Superior en Administración de Sistemas Informáticos en Red",
+      "field": "ASIR",
+      "period": "2022",
+      "startDate": "2020-09-01",
+      "endDate": "2022-06-30",
+      "description": "Formación en administración de sistemas operativos, redes locales, servicios de internet, seguridad informática y administración de bases de datos.",
+      "logoUrl": ""
+    },
+    {
+      "id": 3,
+      "institution": "IES La Fuensanta",
+      "degree": "Técnico Superior en Sistemas de Telecomunicaciones e Informáticos",
+      "field": "TSSTI",
+      "period": "2020",
+      "startDate": "2018-09-01",
+      "endDate": "2020-06-30",
+      "description": "Formación en sistemas de telecomunicaciones, redes de datos, infraestructuras de comunicaciones y sistemas informáticos. Incluye certificación CCNA (Cisco Certified Network Associate) obtenida a través de Cisco Networking Academy.",
+      "logoUrl": ""
+    }
+  ]
+}

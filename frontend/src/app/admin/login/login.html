@@ -1,0 +1,42 @@
+<div class="login-page">
+  <div class="login-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <div class="login-card">
+    <div class="login-header">
+      <div class="logo"><mat-icon>admin_panel_settings</mat-icon></div>
+      <h1>Panel Admin</h1>
+      <p>Accede para gestionar tu portfolio</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="login-form">
+      <mat-form-field appearance="outline" class="field">
+        <mat-label>Usuario</mat-label>
+        <input matInput formControlName="username" autocomplete="username" />
+        <mat-icon matPrefix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="field">
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="password" [type]="showPass() ? 'text' : 'password'" autocomplete="current-password" />
+        <mat-icon matPrefix>lock</mat-icon>
+        <button type="button" mat-icon-button matSuffix (click)="showPass.set(!showPass())">
+          <mat-icon>{{ showPass() ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      @if (error()) {
+        <div class="error-msg"><mat-icon>error_outline</mat-icon> {{ error() }}</div>
+      }
+
+      <button mat-flat-button type="submit" class="submit-btn" [disabled]="loading()">
+        <mat-icon>{{ loading() ? 'hourglass_empty' : 'login' }}</mat-icon>
+        {{ loading() ? 'Entrando...' : 'Entrar' }}
+      </button>
+    </form>
+
+    <p class="back-link"><a routerLink="/">← Volver al portfolio</a></p>
+  </div>
+</div>

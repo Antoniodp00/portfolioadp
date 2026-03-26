@@ -1,0 +1,84 @@
+.dashboard { max-width: 900px; }
+
+.welcome-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(37,99,235,0.15) 0%, rgba(6,182,212,0.08) 100%);
+  border: 1px solid rgba(37,99,235,0.25);
+  border-radius: var(--radius-card);
+  padding: 28px 32px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  h2 { font-size: 1.4rem; font-weight: 700; color: var(--color-text); margin: 0 0 6px; }
+  p  { color: var(--color-muted); margin: 0; font-size: 0.9rem; }
+
+  .view-btn {
+    background: var(--gradient-hero) !important;
+    color: #fff !important;
+    border-radius: 100px !important;
+    white-space: nowrap;
+    display: flex; align-items: center; gap: 6px;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  text-decoration: none;
+  transition: var(--transition);
+  &:hover { border-color: var(--accent, var(--color-primary)); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+  .stat-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    mat-icon { font-size: 22px; width: 22px; height: 22px; } }
+  .stat-info { flex: 1; }
+  .stat-value { display: block; font-size: 1.8rem; font-weight: 800; color: var(--color-text); line-height: 1; }
+  .stat-label { font-size: 0.8rem; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .stat-arrow { color: var(--color-muted); margin-left: auto; }
+}
+
+.section-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  margin-bottom: 16px;
+}
+
+.quick-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.quick-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 12px 20px;
+  color: var(--color-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--transition);
+  mat-icon { font-size: 18px; width: 18px; height: 18px; }
+  &:hover { border-color: rgba(37,99,235,0.4); color: var(--color-primary-light); background: rgba(37,99,235,0.08); }
+}

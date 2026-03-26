@@ -1,0 +1,106 @@
+.skills-section {
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+}
+
+.category-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border-radius: 100px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+
+  &:hover {
+    border-color: rgba(96,165,250,0.4);
+    color: var(--color-primary-light);
+  }
+
+  &.active {
+    background: var(--gradient-hero);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.3);
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  transition: var(--transition);
+
+  &:hover {
+    border-color: rgba(37,99,235,0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(37,99,235,0.12);
+  }
+
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .skill-name-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-icon {
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+  .skill-name {
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 0.95rem;
+  }
+
+  .skill-bar {
+    height: 6px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 100px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .skill-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: var(--gradient-hero);
+    transition: width 1s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .skill-category {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+}

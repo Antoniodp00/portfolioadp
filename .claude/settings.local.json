@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(java --version)",
+      "Bash(mvn --version)",
+      "Bash(ng version:*)",
+      "Bash(curl -s \"https://start.spring.io/starter.zip?type=maven-project&language=java&bootVersion=3.4.3&baseDir=backend&groupId=com.portfolio&artifactId=backend&name=backend&description=Portfolio+API&packageName=com.portfolio.backend&packaging=jar&javaVersion=21&dependencies=web,lombok,validation\" -o backend.zip)",
+      "Bash(unzip -q backend.zip)",
+      "Bash(curl -v \"https://start.spring.io/starter.zip?type=maven-project&language=java&bootVersion=3.4.3&baseDir=backend&groupId=com.portfolio&artifactId=backend&name=backend&description=Portfolio+API&packageName=com.portfolio.backend&packaging=jar&javaVersion=21&dependencies=web,lombok,validation\" -o /c/Dev/02-projects/Portfolio/backend.zip)",
+      "Bash(curl -s \"https://start.spring.io/starter.zip?type=maven-project&language=java&bootVersion=3.5.0&baseDir=backend&groupId=com.portfolio&artifactId=backend&name=backend&description=Portfolio+API&packageName=com.portfolio.backend&packaging=jar&javaVersion=21&dependencies=web,lombok,validation\" -o /c/Dev/02-projects/Portfolio/backend.zip)",
+      "Bash(ng new:*)",
+      "Bash(ng add:*)",
+      "Bash(npm install:*)",
+      "Bash(ng generate:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(echo \"=== $f ===\")",
+      "Read(//c/Dev/02-projects/Portfolio/frontend/**)",
+      "Bash(done)",
+      "Bash(do echo:*)",
+      "Bash(node ./node_modules/@angular/cli/bin/ng.js build --configuration development)",
+      "Bash(curl -s \"https://api.github.com/users/Antoniodp00/repos?sort=updated&per_page=20\" -H \"Accept: application/vnd.github.v3+json\")",
+      "WebFetch(domain:github.com)",
+      "Bash(curl -s \"https://api.github.com/users/Antoniodp00\" -H \"Accept: application/vnd.github.v3+json\")",
+      "Bash(python3 -c \":*)",
+      "Bash(python generate_cv.py)",
+      "Bash(pip install:*)",
+      "Bash(find /c/Dev/02-projects/Portfolio -maxdepth 2 -type f \\\\\\(-name Dockerfile* -o -name docker-compose* -o -name .github* -o -name *.yml -o -name *.yaml \\\\\\))"
+    ]
+  }
+}
